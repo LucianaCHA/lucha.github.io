@@ -1,21 +1,28 @@
 ---
 import { SITE_TITLE } from '../consts';
+import { detectLangFromPath, getHomePath, getLocalizedPath, type Lang } from '../i18n/routing';
 import HeaderLink from './HeaderLink.astro';
+
+const base = import.meta.env.BASE_URL;
+const pathname = Astro.url.pathname;
+const currentLang = detectLangFromPath(pathname, base);
+
+const buildLocalizedPath = (lang: Lang) => getLocalizedPath(pathname, base, lang);
+const homeHref = getHomePath(base, currentLang);
+const aboutHref = `/about/${currentLang}`;
 ---
 
 <header>
   <nav>
-    <h2><a href={import.meta.env.BASE_URL}>{SITE_TITLE}</a></h2>
+    <h2><a href={homeHref}>{SITE_TITLE}</a></h2>
     <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <!--<HeaderLink href="/blog">Blog</HeaderLink>-->
-      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink href={`/${currentLang}`}>Home</HeaderLink>
+      <!--<HeaderLink href={`/${currentLang}/blog`}>Blog</HeaderLink>-->
+      <HeaderLink href={aboutHref}>About</HeaderLink>
     </div>
     <div class="social-links">
       <span style="display: block ruby"
-        ><a href={`${import.meta.env.BASE_URL}es/`}>ES</a> | <a href={import.meta.env.BASE_URL}
-          >EN</a
-        ></span
+        ><a href={buildLocalizedPath('es')}>ES</a> | <a href={buildLocalizedPath('en')}>EN</a></span
       >
 
       <a href="https://www.linkedin.com/in/luciana-chamorro/" target="_blank">

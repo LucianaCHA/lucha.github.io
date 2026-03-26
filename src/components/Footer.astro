@@ -1,7 +1,12 @@
 ---
+import { detectLangFromPath } from '../i18n/routing';
 import { useTranslations } from '../i18n';
 
-const lang = Astro.props.lang || 'es';
+const base = import.meta.env.BASE_URL;
+const pathname = Astro.url.pathname;
+const detectedLang = detectLangFromPath(pathname, base);
+
+const lang = Astro.props.lang || detectedLang;
 const t = useTranslations(lang);
 const today = new Date();
 ---
