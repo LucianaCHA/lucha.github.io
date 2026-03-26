@@ -6,14 +6,14 @@ import HomeSections from '../../components/HomeSections.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
 export function getStaticPaths() {
-  return [{ params: { lang: 'es' } }];
+  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
 }
 
 const lang = (Astro.params.lang || 'es') as 'es' | 'en';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>

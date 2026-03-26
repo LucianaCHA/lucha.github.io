@@ -13,7 +13,7 @@ export const aboutContent = {
       'Valoro mucho el trabajo en equipo y la colaboración. Me gusta compartir conocimiento y construir mejores soluciones en conjunto.',
 
       'Fuera de lo técnico, me interesa sostener procesos a largo plazo y seguir aprendiendo sin perder curiosidad.',
-      'Fan de los cómics, aspirante a miembre de la Blue Lantern Corps: tratando de mantener la esperanza incluso cuando el código no compila (o en deploys de viernes).',
+      'Fan de los cómics, aspirante a miembro de la Blue Lantern Corps: tratando de mantener la esperanza incluso cuando el código no compila (o en deploys de viernes).',
 
       'Estoy abierta a oportunidades donde pueda seguir creciendo en cloud, seguridad y arquitectura.',
       'Espero que disfrutes este espacio. Es parte de mi proceso de aprendizaje y está desarrollado con Astro 🚀',

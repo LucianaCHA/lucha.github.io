@@ -2,7 +2,7 @@ export const homeContent = {
   es: {
     title: 'Software Engineer → Cloud & Seguridad',
     subtitle:
-      'Documentando lo que construyo, aprendo en la búsqueda de mejorar (y divertirme) cada día a día.',
+      'Documentando lo que construyo, aprendo en la búsqueda de mejorar (y divertirme) día a día.',
 
     aboutTitle: 'Sobre mí',
     aboutText:
