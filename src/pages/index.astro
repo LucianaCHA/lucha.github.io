@@ -2,32 +2,19 @@
 import BaseHead from '.././components/BaseHead.astro';
 import Footer from '.././components/Footer.astro';
 import Header from '.././components/Header.astro';
+import HomeSections from '.././components/HomeSections.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '.././consts';
-import { useTranslations } from ".././i18n"
-
-export function getStaticPaths() {
-  return [
-    { params: { lang: "es" } },
-    { params: { lang: "en" } },
-  ];
-}
-
-const lang = Astro.params.lang || "es";
-const t = useTranslations(lang);
+const lang = 'en';
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-			<main>
-				<h1>Hey!</h1>
-				<h1>{t.home.title}</h1>
-				<p>{t.home.subtitle}</p>
-			</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <HomeSections lang={lang} />
+    <Footer />
+  </body>
 </html>
