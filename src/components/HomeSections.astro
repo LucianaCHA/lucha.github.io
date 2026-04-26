@@ -1,5 +1,5 @@
 ---
-import { getAboutPath, type Lang } from '../i18n/routing';
+import { buildPath, type Lang } from '../i18n/routing';
 import { useTranslations } from '../i18n';
 
 interface Props {
@@ -8,7 +8,12 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const aboutHref = getAboutPath(import.meta.env.BASE_URL, lang as Lang);
+const aboutHref = buildPath({
+  base: import.meta.env.BASE_URL,
+  segments: ['about'],
+  lang: lang as Lang,
+  langPosition: 'suffix',
+});
 ---
 
 <main>

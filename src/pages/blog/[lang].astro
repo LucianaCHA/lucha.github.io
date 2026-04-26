@@ -7,19 +7,24 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-const posts = (await getCollection('blog')).sort(
+export function getStaticPaths() {
+  return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+}
+
+const lang = (Astro.params.lang || 'en') as 'en' | 'es';
+
+const posts = (await getCollection('blog', ({ data }) => data.lang === lang)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 const getPostHref = (post: (typeof posts)[number]) => {
-  const lang = post.data.lang ?? 'en';
   const postSlug = post.data.postSlug ?? post.id;
   return `/blog/${postSlug}/${lang}/`;
 };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
