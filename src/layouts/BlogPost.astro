@@ -54,8 +54,12 @@ const { heroImageCaption } = Astro.props;
         line-height: 1;
       }
       .main-title {
-        width: fit-content;
-        margin: auto;
+        width: min(18ch, calc(100% - 2rem));
+        margin: 1.25rem auto 0.75rem;
+        text-align: center;
+        line-height: 1.1;
+        text-wrap: balance;
+        font-size: clamp(1.7rem, 3vw, 2.5rem);
       }
       .date {
         margin-bottom: 0.5em;
