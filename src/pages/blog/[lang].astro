@@ -17,9 +17,10 @@ const posts = (await getCollection('blog', ({ data }) => data.lang === lang)).so
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
+const base = import.meta.env.BASE_URL;
 const getPostHref = (post: (typeof posts)[number]) => {
   const postSlug = post.data.postSlug ?? post.id;
-  return `/blog/${postSlug}/${lang}/`;
+  return `${base}blog/${postSlug}/${lang}/`;
 };
 ---
 

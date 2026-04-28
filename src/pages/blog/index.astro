@@ -11,10 +11,11 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
+const base = import.meta.env.BASE_URL;
 const getPostHref = (post: (typeof posts)[number]) => {
   const lang = post.data.lang ?? 'en';
   const postSlug = post.data.postSlug ?? post.id;
-  return `/blog/${postSlug}/${lang}/`;
+  return `${base}blog/${postSlug}/${lang}/`;
 };
 ---
 
