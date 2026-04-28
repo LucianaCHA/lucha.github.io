@@ -6,7 +6,7 @@ export const homeContent = {
 
     aboutTitle: 'Sobre mí',
     aboutText:
-      'Soy desarrolladora con experiencia en frontend y arquitectura. Actualmente enfocada en cloud engineering, seguridad y escalabilidad de aplicaciones.',
+      'Soy desarrolladora con experiencia en frontend, backend y arquitectura. Actualmente enfocada en cloud engineering, seguridad y escalabilidad de aplicaciones.',
 
     postsTitle: 'Últimos aprendizajes',
     post1: 'Cómo estoy aprendiendo cloud sin gastar dinero',
@@ -23,7 +23,7 @@ export const homeContent = {
 
     aboutTitle: 'About me',
     aboutText:
-      'Software developer with experience in frontend and architecture. Currently focused on cloud engineering, security and scalability.',
+      'Software developer with experience in frontend, backend and architecture. Currently focused on cloud engineering, security and scalability.',
 
     postsTitle: 'Latest learnings',
     post1: "How I'm learning cloud without spending money",

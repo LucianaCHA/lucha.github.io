@@ -15,6 +15,9 @@
   --box-shadow:
     0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
     0 16px 32px rgba(var(--gray), 33%);
+  --measure: 65ch;
+  --measure-wide: 80ch;
+  --title-measure: 18ch;
 }
 @font-face {
   font-family: 'Atkinson';
@@ -40,14 +43,13 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
-  font-size: 20px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.6;
 }
 main {
-  width: 720px;
-  max-width: calc(100% - 2em);
+  /* max-width: min(calc(var(--measure) + 4rem), 960px); */
   margin: auto;
-  padding: 3em 1em;
+  padding: 3rem 1rem;
 }
 h1,
 h2,
@@ -60,7 +62,7 @@ h6 {
   line-height: 1.2;
 }
 h1 {
-  font-size: 3.052em;
+  font-size: clamp(1.8rem, 4.5vw, 3.05rem);
 }
 h2 {
   font-size: 2.441em;
@@ -89,6 +91,66 @@ p {
 }
 .prose p {
   margin-bottom: 2em;
+}
+
+.prose {
+  /* Take the full width of the article column and align left */
+  max-width: min(var(--measure-wide), calc(100% - 2rem));
+  margin: 0;
+  padding: 0 1rem;
+  text-align: left;
+}
+
+.section {
+  padding-block: 2rem;
+}
+
+.home section {
+  max-width: var(--measure);
+  margin: 0 auto 1.25rem auto;
+}
+
+.hero-image {
+  width: 50%;
+  margin: 1rem auto;
+  text-align: center;
+}
+.hero-image img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+}
+.hero-caption {
+  margin: 0.75rem auto 0;
+  max-width: var(--measure);
+  padding: 0 1rem;
+  color: rgb(var(--gray));
+  font-size: 0.95rem;
+  text-align: center;
+  font-style: italic;
+}
+
+article .title {
+  margin-bottom: 1em;
+  padding: 1em 0;
+  text-align: center;
+  line-height: 1;
+}
+.main-title {
+  width: min(var(--title-measure), calc(100% - 2rem));
+  margin: 1.25rem auto 0.75rem;
+  text-align: center;
+  line-height: 1.1;
+  text-wrap: balance;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+}
+.date {
+  margin-bottom: 0.5em;
+  color: rgb(var(--gray));
+}
+.last-updated-on {
+  font-style: italic;
 }
 textarea {
   width: 100%;
@@ -129,10 +191,10 @@ hr {
 }
 @media (max-width: 720px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
   main {
-    padding: 1em;
+    padding: 1rem;
   }
 }
 
