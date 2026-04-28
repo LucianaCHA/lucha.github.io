@@ -8,12 +8,17 @@ const blog = defineCollection({
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
     z.object({
+      lang: z.enum(['en', 'es']),
+      postSlug: z
+        .string()
+        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Use kebab-case (lowercase words separated by hyphens).'),
       title: z.string(),
       description: z.string(),
       // Transform string to Date object
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       heroImage: z.optional(image()),
+      heroImageCaption: z.string().optional(),
     }),
 });
 
