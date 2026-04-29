@@ -25,7 +25,10 @@ const getPostHref = (post: (typeof posts)[number]) => {
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
       main {
-        width: 960px;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        box-sizing: border-box;
       }
       ul {
         display: flex;
@@ -37,6 +40,7 @@ const getPostHref = (post: (typeof posts)[number]) => {
       }
       ul li {
         width: calc(50% - 1rem);
+        box-sizing: border-box;
       }
       ul li * {
         text-decoration: none;
@@ -56,6 +60,8 @@ const getPostHref = (post: (typeof posts)[number]) => {
       ul li img {
         margin-bottom: 0.5rem;
         border-radius: 12px;
+        width: 100%;
+        height: auto;
       }
       ul li a {
         display: block;
@@ -75,6 +81,17 @@ const getPostHref = (post: (typeof posts)[number]) => {
       }
       ul a:hover img {
         box-shadow: var(--box-shadow);
+      }
+      @media (max-width: 768px) {
+        main {
+          padding: 0 0.75rem;
+        }
+        ul {
+          gap: 1.5rem;
+        }
+        ul li {
+          width: calc(50% - 0.75rem);
+        }
       }
       @media (max-width: 720px) {
         ul {
