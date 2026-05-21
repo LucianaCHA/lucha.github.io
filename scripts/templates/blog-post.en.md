@@ -1,5 +1,5 @@
 ---
-lang: '__LANG__'
+lang: 'en'
 postSlug: '__SLUG__'
 title: '__TITLE__'
 description: '__DESCRIPTION__'
