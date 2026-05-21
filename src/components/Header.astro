@@ -229,11 +229,11 @@ const aboutHref = buildPath({ base, segments: ['about'], lang: currentLang, lang
       align-items: stretch;
       gap: 0.25rem;
     }
-    .internal-links a {
-      padding: 0.8rem 0.25rem;
+    .social-links > a {
+      display: none;
     }
     .social-links {
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
     }
     .social-links a {
