@@ -173,16 +173,16 @@ Notas:
 ## 9. Errores comunes
 
 1. Slug invalido:
-Solucion: usar kebab-case en `postSlug`.
+   Solucion: usar kebab-case en `postSlug`.
 
 2. Idioma invalido:
-Solucion: usar solo `en` o `es`.
+   Solucion: usar solo `en` o `es`.
 
 3. Problemas con imagen en portada:
-Solucion: verificar ruta real del archivo en `src/assets/` o usar URL remota valida.
+   Solucion: verificar ruta real del archivo en `src/assets/` o usar URL remota valida.
 
 4. Quiero crear borrador base sin imagen y me pide `--asset`:
-Solucion: ejecutar con `--base` (o `--base-only`).
+   Solucion: ejecutar con `--base` (o `--base-only`).
 
 5. Se rompio paridad EN/ES:
-Solucion: alinear headings y estructura de secciones entre ambos archivos.
+   Solucion: alinear headings y estructura de secciones entre ambos archivos.

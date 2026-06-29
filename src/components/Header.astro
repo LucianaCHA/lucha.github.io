@@ -8,7 +8,12 @@ const pathname = Astro.url.pathname;
 const currentLang = detectLangFromPath(pathname, base);
 
 const buildLocalizedPath = (lang: 'en' | 'es') => getLocalizedPath(pathname, base, lang);
-const homeHref = buildPath({ base, lang: currentLang, langPosition: 'prefix', trailingSlash: true });
+const homeHref = buildPath({
+  base,
+  lang: currentLang,
+  langPosition: 'prefix',
+  trailingSlash: true,
+});
 const blogHref = buildPath({
   base,
   segments: ['blog'],
@@ -16,7 +21,12 @@ const blogHref = buildPath({
   langPosition: 'suffix',
   trailingSlash: true,
 });
-const aboutHref = buildPath({ base, segments: ['about'], lang: currentLang, langPosition: 'suffix' });
+const aboutHref = buildPath({
+  base,
+  segments: ['about'],
+  lang: currentLang,
+  langPosition: 'suffix',
+});
 ---
 
 <header>
@@ -30,7 +40,8 @@ const aboutHref = buildPath({ base, segments: ['about'], lang: currentLang, lang
       </div>
       <div class="social-links">
         <span class="language-links"
-          ><a href={buildLocalizedPath('es')}>ES</a> | <a href={buildLocalizedPath('en')}>EN</a></span
+          ><a href={buildLocalizedPath('es')}>ES</a> | <a href={buildLocalizedPath('en')}>EN</a
+          ></span
         >
 
         <a href="https://www.linkedin.com/in/luciana-chamorro/" target="_blank" rel="noreferrer">
@@ -70,7 +81,8 @@ const aboutHref = buildPath({ base, segments: ['about'], lang: currentLang, lang
         </div>
         <div class="social-links">
           <span class="language-links"
-            ><a href={buildLocalizedPath('es')}>ES</a> | <a href={buildLocalizedPath('en')}>EN</a></span
+            ><a href={buildLocalizedPath('es')}>ES</a> | <a href={buildLocalizedPath('en')}>EN</a
+            ></span
           >
 
           <a href="https://www.linkedin.com/in/luciana-chamorro/" target="_blank" rel="noreferrer">
@@ -160,7 +172,9 @@ const aboutHref = buildPath({ base, segments: ['about'], lang: currentLang, lang
     width: 100%;
     border-radius: 999px;
     background: currentColor;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
   }
   .menu[open] .menu-icon span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
