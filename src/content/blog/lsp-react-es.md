@@ -36,11 +36,12 @@ La pregunta importante no es:
 
 sino:
 
-    “¿Dos instancias de este componente 
-    pueden sustituirse sin cambiar el 
+    “¿Dos instancias de este componente
+    pueden sustituirse sin cambiar el
     comportamiento observable del sistema?”
 
 ---
+
 ## Ejemplo práctico
 
 Una señal frecuente aparece cuando una misma abstracción empieza a representar múltiples comportamientos de dominio.
@@ -49,11 +50,11 @@ Por ejemplo:
 
 ```jsx
 const ActionButton = ({ type, entity, onAction }) => {
-  if (type === "like") {
+  if (type === 'like') {
     return <LikeButton entity={entity} onAction={onAction} />;
   }
 
-  if (type === "bookmark") {
+  if (type === 'bookmark') {
     return <BookmarkButton entity={entity} onAction={onAction} />;
   }
 
@@ -84,6 +85,7 @@ Leemos:
 <ActionButton type="like" />
 <ActionButton type="share" />
 ```
+
 Ambos parecen representar la misma abstracción.
 
 Pero si cada variante modifica reglas de negocio, flujos de estado, analytics o comportamientos distintos, la sustitución deja de ser segura.
@@ -155,6 +157,7 @@ A veces el problema no es que un componente se volvió demasiado genérico.
 El problema es que la abstracción dejó de representar una única idea clara.
 
 ## Preguntas guía
+
 - ¿Dos instancias de este componente pueden sustituirse de forma segura?
 - ¿Las props mantienen el mismo significado en todos los contextos?
 - ¿El nombre del componente describe correctamente el efecto que produce?

@@ -9,7 +9,7 @@ heroImage: '../../assets/__ASSET__'
 heroImageCaption: '__HERO_CAPTION__'
 ---
 
-# __TITLE__
+# **TITLE**
 
 ## Introduction
 

@@ -18,7 +18,8 @@ const posts = (await getCollection('blog', ({ data }) => data.lang === lang)).so
 );
 const currentSlug = post.data.postSlug ?? post.id;
 const currentIndex = posts.findIndex((entry) => (entry.data.postSlug ?? entry.id) === currentSlug);
-const previousPost = currentIndex >= 0 && currentIndex < posts.length - 1 ? posts[currentIndex + 1] : undefined;
+const previousPost =
+  currentIndex >= 0 && currentIndex < posts.length - 1 ? posts[currentIndex + 1] : undefined;
 const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : undefined;
 const { Content } = await render(post);
 ---

@@ -126,9 +126,9 @@ const nextLabel = lang === 'es' ? 'Siguiente' : 'Next';
   <body>
     <Header />
     <main>
-      <article >
+      <article>
         <div class="hero-image">
-            <hr />
+          <hr />
           {heroImage && <Image src={heroImage} alt="" />}
           {heroImageCaption && <p class="hero-caption">{heroImageCaption}</p>}
         </div>
@@ -137,7 +137,7 @@ const nextLabel = lang === 'es' ? 'Siguiente' : 'Next';
             <h1 class="post-title">{title}</h1>
             <div class="date">
               <FormattedDate date={pubDate} />
-                <hr/>
+              <hr />
               {
                 updatedDate && (
                   <div class="last-updated-on">
@@ -146,25 +146,26 @@ const nextLabel = lang === 'es' ? 'Siguiente' : 'Next';
                 )
               }
             </div>
-            
           </div>
           <slot />
-          {(prevPost || nextPost) && (
-            <nav class="post-nav" aria-label="Post navigation">
-              {prevPost && (
-                <a class="post-nav-link prev" href={getPostHref(prevPost)}>
-                  <span class="post-nav-label">{previousLabel}</span>
-                  <span class="post-nav-title">{prevPost.data.title}</span>
-                </a>
-              )}
-              {nextPost && (
-                <a class="post-nav-link next" href={getPostHref(nextPost)}>
-                  <span class="post-nav-label">{nextLabel}</span>
-                  <span class="post-nav-title">{nextPost.data.title}</span>
-                </a>
-              )}
-            </nav>
-          )}
+          {
+            (prevPost || nextPost) && (
+              <nav class="post-nav" aria-label="Post navigation">
+                {prevPost && (
+                  <a class="post-nav-link prev" href={getPostHref(prevPost)}>
+                    <span class="post-nav-label">{previousLabel}</span>
+                    <span class="post-nav-title">{prevPost.data.title}</span>
+                  </a>
+                )}
+                {nextPost && (
+                  <a class="post-nav-link next" href={getPostHref(nextPost)}>
+                    <span class="post-nav-label">{nextLabel}</span>
+                    <span class="post-nav-title">{nextPost.data.title}</span>
+                  </a>
+                )}
+              </nav>
+            )
+          }
         </div>
       </article>
     </main>

@@ -39,6 +39,7 @@ but:
 "Can two instances of this component be substituted without changing the observable behavior of the system?"
 
 ---
+
 ## Practical Example
 
 A common warning sign appears when the same abstraction starts representing multiple domain behaviors.
@@ -47,11 +48,11 @@ For example:
 
 ```jsx
 const ActionButton = ({ type, entity, onAction }) => {
-  if (type === "like") {
+  if (type === 'like') {
     return <LikeButton entity={entity} onAction={onAction} />;
   }
 
-  if (type === "bookmark") {
+  if (type === 'bookmark') {
     return <BookmarkButton entity={entity} onAction={onAction} />;
   }
 
@@ -82,6 +83,7 @@ We read:
 <ActionButton type="like" />
 <ActionButton type="share" />
 ```
+
 Both appear to represent the same abstraction.
 
 But if each variant modifies different business rules, state flows, analytics events, or behaviors, substitution is no longer safe.
@@ -93,7 +95,6 @@ But if each variant modifies different business rules, state flows, analytics ev
 Another warning sign appears when a component cannot behave correctly without checking for specific types or internal conditions.
 
 For example:
-
 
 ```jsx
 if (entity.type === "blogPost") {
@@ -115,7 +116,7 @@ entity as Comment
 
 When an abstraction needs to know concrete details in order to decide how to behave, the abstraction itself starts to become unstable.
 
-## The problem isn't  about reuse
+## The problem isn't about reuse
 
 Reusing infrastructure or implementation details is not necessarily a bad thing. In fact, it is often desirable.
 

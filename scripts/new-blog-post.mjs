@@ -25,11 +25,23 @@ try {
 
   const answers = {
     slug: normalizedSlug,
-    titleEn: argv['title-en'] ?? (baseMode ? `TODO: ${titleFromSlug(normalizedSlug)} (EN)` : await ask(rl, 'English title: ')),
-    titleEs: argv['title-es'] ?? (baseMode ? `TODO: ${titleFromSlug(normalizedSlug)} (ES)` : await ask(rl, 'Spanish title: ')),
-    descriptionEn: argv['description-en'] ?? (baseMode ? 'TODO: Add English summary.' : await ask(rl, 'English description: ')),
-    descriptionEs: argv['description-es'] ?? (baseMode ? 'TODO: Agrega resumen en espanol.' : await ask(rl, 'Spanish description: ')),
-    asset: argv.asset ?? (baseMode ? '' : await ask(rl, 'Asset filename in src/assets (for example solid-cover.png): ')),
+    titleEn:
+      argv['title-en'] ??
+      (baseMode ? `TODO: ${titleFromSlug(normalizedSlug)} (EN)` : await ask(rl, 'English title: ')),
+    titleEs:
+      argv['title-es'] ??
+      (baseMode ? `TODO: ${titleFromSlug(normalizedSlug)} (ES)` : await ask(rl, 'Spanish title: ')),
+    descriptionEn:
+      argv['description-en'] ??
+      (baseMode ? 'TODO: Add English summary.' : await ask(rl, 'English description: ')),
+    descriptionEs:
+      argv['description-es'] ??
+      (baseMode ? 'TODO: Agrega resumen en espanol.' : await ask(rl, 'Spanish description: ')),
+    asset:
+      argv.asset ??
+      (baseMode
+        ? ''
+        : await ask(rl, 'Asset filename in src/assets (for example solid-cover.png): ')),
     pubDate: argv['pub-date'] ?? today,
   };
 
@@ -70,16 +82,24 @@ try {
   });
 
   if (dryRun) {
-    process.stdout.write(`\nWould create:\n- ${path.relative(projectRoot, enFile)}\n- ${path.relative(projectRoot, esFile)}\n`);
-    process.stdout.write(`\nHero image: ${answers.asset ? `../../assets/${answers.asset}` : '(not set in base mode)'}\n`);
-    process.stdout.write(`\nEnglish title: ${answers.titleEn}\nSpanish title: ${answers.titleEs}\n`);
+    process.stdout.write(
+      `\nWould create:\n- ${path.relative(projectRoot, enFile)}\n- ${path.relative(projectRoot, esFile)}\n`
+    );
+    process.stdout.write(
+      `\nHero image: ${answers.asset ? `../../assets/${answers.asset}` : '(not set in base mode)'}\n`
+    );
+    process.stdout.write(
+      `\nEnglish title: ${answers.titleEn}\nSpanish title: ${answers.titleEs}\n`
+    );
     process.exit(0);
   }
 
   await writeFile(enFile, enContent);
   await writeFile(esFile, esContent);
 
-  process.stdout.write(`Created:\n- ${path.relative(projectRoot, enFile)}\n- ${path.relative(projectRoot, esFile)}\n`);
+  process.stdout.write(
+    `Created:\n- ${path.relative(projectRoot, enFile)}\n- ${path.relative(projectRoot, esFile)}\n`
+  );
 } finally {
   rl.close();
 }
@@ -98,7 +118,10 @@ function renderTemplate(template, values) {
     .replaceAll('__PUB_DATE__', values.pubDate)
     .replaceAll('__UPDATED_DATE__', values.updatedDate ?? values.pubDate)
     .replaceAll('__ASSET__', values.asset)
-    .replaceAll('__HERO_CAPTION__', values.lang === 'en' ? 'Cover image generated with AI' : 'Imagen de portada creada con IA');
+    .replaceAll(
+      '__HERO_CAPTION__',
+      values.lang === 'en' ? 'Cover image generated with AI' : 'Imagen de portada creada con IA'
+    );
 
   if (!values.asset) {
     result = result
